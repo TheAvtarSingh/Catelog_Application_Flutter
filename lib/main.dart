@@ -5,8 +5,6 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  final days = 30;
-  final name = "Avtar";
   const MyApp({super.key});
 
   @override
