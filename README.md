@@ -128,4 +128,104 @@ class LoginPage extends StatelessWidget {
 ![image](https://user-images.githubusercontent.com/88712571/222908026-fcdcf8f3-23cf-414e-bff6-a5985608ce72.png)
 
 
+# Creating a Login Page
+
+## Adding an Image
+
+1. Add Text Image use unDraw for image
+
+> Specify in PUBSPEC FILE
+
+![image](https://user-images.githubusercontent.com/88712571/222976549-d0cab7a9-f5a8-4fa7-b3a0-cdad42012862.png)
+
+2. Add In Folder
+
+![image](https://user-images.githubusercontent.com/88712571/222976571-b1decca5-82cb-4beb-aa64-ba759de2ccce.png)
+
+3. Use in Form
+
+```
+Image.asset(
+            "assets/images/login_image.png",
+            fit: BoxFit.cover,
+          ),
+```
+
+![image](https://user-images.githubusercontent.com/88712571/222976601-80e6fc92-4f24-42df-a63d-f6bdb69300bb.png)
+
+
+Output :
+
+![image](https://user-images.githubusercontent.com/88712571/222976667-30c98633-e956-4f95-87a8-641695bbf71f.png)
+
+## Adding Google Fonts
+
+1. iMPORT dEPENEDENCY FROM PUB.DEV
+
+`flutter pub add google_fonts`
+
+2. In Main File Specify Font
+
+![image](https://user-images.githubusercontent.com/88712571/222976802-fec17a13-36cf-4904-a9e6-5f66986f027c.png)
+
+### Use SpaceBox For Adding Space rather than Padding
+
+## Adding Text Fields
+```
+TextFormField(
+            decoration: InputDecoration(
+                labelText: "Username", hintText: "Enter Your Username : "),
+          ),
+          SizedBox(height: 20.0),
+          TextFormField(
+            decoration: InputDecoration(
+                labelText: "Password", hintText: "Enter Your Password : "),
+          )
+          
+```
+
+![image](https://user-images.githubusercontent.com/88712571/222977158-3a1baecc-7795-41fd-a36a-08b815e23596.png)
+
+
+![image](https://user-images.githubusercontent.com/88712571/222977127-e0367b06-6bcf-4721-8064-8ac2c3c061a0.png)
+
+### Specify TextField Size
+
+Add Padding(for specifying size in symmetrical order) and add Column (for multiple Children)
+
+```
+ Padding(
+            padding:
+                const EdgeInsets.symmetric(vertical: 16.0, horizontal: 32.0),
+            child: Column(
+              children: [
+                TextFormField(
+                  decoration: InputDecoration(
+                      labelText: "Username",
+                      hintText: "Enter Your Username : "),
+                ),
+                SizedBox(height: 20.0),
+                TextFormField(
+                  decoration: InputDecoration(
+                      labelText: "Password",
+                      hintText: "Enter Your Password : "),
+                )
+              ],
+            ),
+          )
+```
+
+![image](https://user-images.githubusercontent.com/88712571/222977461-22df26b1-d146-4ca5-903f-03e2897df9ed.png)
+
+Output :
+
+![image](https://user-images.githubusercontent.com/88712571/222977542-645d2bde-6347-4ae5-9d0e-4d9f66c790a8.png)
+
+### Add Button 
+
+![image](https://user-images.githubusercontent.com/88712571/222977635-f81e276d-09a1-4ac9-9dec-e9072a2e7eb9.png)
+
+Final Output 
+
+![image](https://user-images.githubusercontent.com/88712571/222977674-6eb741bc-821b-473f-910b-13fe7ca4fcda.png)
 
