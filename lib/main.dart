@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'pages/HomePage.dart';
 import 'pages/LoginPage.dart';
-import 'package:google_fonts/google_fonts.dart';
-
 import 'utils/routes.dart';
+import 'widgets/Themes.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,10 +18,9 @@ class MyApp extends StatelessWidget {
       // Give app Dark Theme based on System Theme
       // Setting code if application gets theme
       themeMode: ThemeMode.light,
-      theme: ThemeData(
-          primarySwatch: Colors.deepPurple,
-          fontFamily: GoogleFonts.lato().fontFamily),
 
+      theme: MyTheme.lightTheme(context),
+      darkTheme: MyTheme.DarkTheme(context),
       // Giving System Theme
       // Specify Theme
       // use brightness: Brightness.dark for Dark Theme
