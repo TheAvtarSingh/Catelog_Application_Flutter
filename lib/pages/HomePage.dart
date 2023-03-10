@@ -1,10 +1,13 @@
+import 'package:catelog_application/widgets/Drawer.dart';
+import 'package:catelog_application/widgets/Themes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'dart:convert';
 import '../models/catelog.dart';
-import '../widgets/Drawer.dart';
-import '../widgets/item_widget.dart';
+import 'package:velocity_x/velocity_x.dart';
+
+import '../widgets/home_widgets/catelog_header.dart';
+import '../widgets/home_widgets/catelog_list.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -38,60 +41,25 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: Text("GetMaxDisc.github.io",
-            style: GoogleFonts.sansita(color: Colors.white)),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: (CatelogModel.Items != null && CatelogModel.Items.isNotEmpty)
-            ? /* ListView.builder(
-                itemCount: CatelogModel.Items.length,
-                itemBuilder: (context, index) {
-                  return ItemWidget(
-                    item: CatelogModel.Items[index],
-                  );
-                }) */
-            GridView.builder(
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    mainAxisSpacing: 12,
-                    crossAxisSpacing: 12),
-                itemBuilder: (context, index) {
-                  final item = CatelogModel.Items[index];
-                  return Card(
-                    clipBehavior: Clip.antiAlias,
-                    shape: RoundedRectangleBorder(
-                        /* side:
-                            BorderSide(color: Color.fromARGB(255, 83, 83, 85)), */
-                        borderRadius: BorderRadius.circular(10)),
-                    child: GridTile(
-                      child: Image.network(item.image),
-                      header: Container(
-                          child: Text(
-                            item.name,
-                            style: TextStyle(color: Colors.white),
-                          ),
-                          padding: EdgeInsets.all(12),
-                          decoration: BoxDecoration(color: Colors.deepPurple)),
-                      footer: Container(
-                          child: Text(
-                            item.price.toString(),
-                            style: TextStyle(color: Colors.white),
-                          ),
-                          padding: EdgeInsets.all(12),
-                          decoration: BoxDecoration(color: Colors.green[600])),
-                    ),
-                  );
-                },
-                itemCount: CatelogModel.Items.length,
-              )
-            : Center(
-                child: CircularProgressIndicator(),
-              ),
-      ),
+      backgroundColor: MyTheme.creamColor,
+      appBar: AppBar(),
       drawer: MyDrawer(),
+      // To Start from Area
+      body: SafeArea(
+          child: Container(
+              // Adding Padding
+              padding: Vx.m32,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  MyHeader(),
+                  if (CatelogModel.Items != null &&
+                      CatelogModel.Items.isNotEmpty)
+                    CatelogList().expand()
+                  else
+                    CircularProgressIndicator().centered().expand()
+                ],
+              ))),
     );
   }
 }
