@@ -42,7 +42,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: MyTheme.creamColor,
-      appBar: AppBar(),
+
       drawer: MyDrawer(),
       // To Start from Area
       body: SafeArea(
@@ -55,7 +55,7 @@ class _HomePageState extends State<HomePage> {
                   MyHeader(),
                   if (CatelogModel.Items != null &&
                       CatelogModel.Items.isNotEmpty)
-                    CatelogList().expand()
+                    CatelogList().p16().expand()
                   else
                     CircularProgressIndicator().centered().expand()
                 ],

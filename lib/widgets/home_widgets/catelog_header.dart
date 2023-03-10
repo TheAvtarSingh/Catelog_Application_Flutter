@@ -22,8 +22,9 @@ class MyHeader extends StatelessWidget {
             // Color
             .color(MyTheme.darkBluishColor)
             // to make it a widget
-            .make(),
-        "Trending Products".text.xl2.make()
+            .make()
+            .p0(),
+        "Trending Products".text.xl2.make(),
       ],
     );
   }
