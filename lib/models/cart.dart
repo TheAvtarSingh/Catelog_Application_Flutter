@@ -3,14 +3,6 @@ import 'package:catelog_application/models/catelog.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 class CartModel {
-// SingleTon
-  // static final CartModel _cartModel = CartModel._();
-
-  // factory CartModel() {
-  //   return _cartModel;
-  // }
-  // CartModel._interval();
-
   late CatelogModel _catelog;
 
   // catelog Field

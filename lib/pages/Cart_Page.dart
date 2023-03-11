@@ -5,6 +5,7 @@ import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 import '../models/cart.dart';
+import '../utils/routes.dart';
 import '../widgets/Themes.dart';
 
 class Cart extends StatelessWidget {
@@ -48,8 +49,9 @@ class _CartTotal extends StatelessWidget {
         30.widthBox,
         ElevatedButton(
                 onPressed: () {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: "Shop Not Opened Yet..".text.make()));
+                  Navigator.pushNamed(context, MyRoute.loginRoute);
+                  /* ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(content: "Shop Not Opened Yet..".text.make())); */
                 },
                 style: ButtonStyle(
                     backgroundColor:
