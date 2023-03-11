@@ -1,9 +1,11 @@
+import 'package:catelog_application/models/cart.dart';
 import 'package:catelog_application/pages/Home_Details_Page.dart';
 import 'package:flutter/material.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 import '../../models/catelog.dart';
 import '../Themes.dart';
+import 'add_to_cart.dart';
 import 'catelog_image.dart';
 
 class CatelogList extends StatelessWidget {
@@ -50,10 +52,10 @@ class CatelogItem extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              catelog.name.text.lg.color(MyTheme.darkBluishColor).bold.make(),
+              catelog.name.text.lg.color(MyTheme.darkCreamColor).bold.make(),
               catelog.desc.text.sm
                   .textStyle(context.captionStyle)
-                  .color(MyTheme.darkBluishColor)
+                  .color(MyTheme.darkCreamColor)
                   .bold
                   .make(),
               10.heightBox,
@@ -62,13 +64,9 @@ class CatelogItem extends StatelessWidget {
                 buttonPadding: Vx.mH8,
                 children: [
                   "\$${catelog.price}".text.bold.xl.make(),
-                  ElevatedButton(
-                      style: ButtonStyle(
-                          backgroundColor: MaterialStateProperty.all(
-                              MyTheme.darkBluishColor),
-                          shape: MaterialStatePropertyAll(StadiumBorder())),
-                      onPressed: () {},
-                      child: "Buy".text.bold.make())
+                  AddToCart(
+                    catelog: catelog,
+                  )
                 ],
               ).pOnly(right: 12)
             ],

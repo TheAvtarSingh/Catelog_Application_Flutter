@@ -1,11 +1,14 @@
+import 'package:catelog_application/pages/Cart_Page.dart';
 import 'package:flutter/material.dart';
+import 'package:velocity_x/velocity_x.dart';
+import 'cors/store.dart';
 import 'pages/HomePage.dart';
 import 'pages/LoginPage.dart';
 import 'utils/routes.dart';
 import 'widgets/Themes.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(VxState(store: MyStore(), child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -17,7 +20,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       // Give app Dark Theme based on System Theme
       // Setting code if application gets theme
-      themeMode: ThemeMode.light,
+      themeMode: ThemeMode.system,
 
       theme: MyTheme.lightTheme(context),
       darkTheme: MyTheme.DarkTheme(context),
@@ -34,6 +37,7 @@ class MyApp extends StatelessWidget {
         MyRoute.homeRoute: (context) => const HomePage(),
         MyRoute.loginRoute: (context) => const LoginPage(),
         "/home": (context) => const HomePage(),
+        MyRoute.cartPage: (context) => const Cart(),
       },
     );
   }

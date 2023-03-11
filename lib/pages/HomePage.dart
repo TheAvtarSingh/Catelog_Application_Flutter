@@ -1,5 +1,7 @@
+import 'package:catelog_application/utils/routes.dart';
 import 'package:catelog_application/widgets/Drawer.dart';
 import 'package:catelog_application/widgets/Themes.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'dart:convert';
@@ -41,8 +43,17 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: MyTheme.creamColor,
-
+      backgroundColor: context.canvasColor,
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: MyTheme.darkBluishColor,
+        onPressed: () {
+          Navigator.pushNamed(context, MyRoute.cartPage);
+        },
+        child: Icon(
+          CupertinoIcons.cart,
+          color: context.theme.accentColor,
+        ),
+      ),
       drawer: MyDrawer(),
       // To Start from Area
       body: SafeArea(
@@ -55,7 +66,7 @@ class _HomePageState extends State<HomePage> {
                   MyHeader(),
                   if (CatelogModel.Items != null &&
                       CatelogModel.Items.isNotEmpty)
-                    CatelogList().p16().expand()
+                    CatelogList().expand()
                   else
                     CircularProgressIndicator().centered().expand()
                 ],

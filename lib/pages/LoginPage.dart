@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:velocity_x/velocity_x.dart';
 
 import '../utils/routes.dart';
 
@@ -49,9 +50,12 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        backgroundColor: context.canvasColor,
+        iconTheme: IconThemeData(color: context.theme.hintColor),
+      ),
       body: Material(
-          color: Colors.white,
+          color: context.canvasColor,
           child: SingleChildScrollView(
             child: Form(
               key: _formKey,
@@ -64,8 +68,10 @@ class _LoginPageState extends State<LoginPage> {
                   Center(
                     child: Text(
                       "Welcome $name",
-                      style: const TextStyle(
-                          fontSize: 28, fontWeight: FontWeight.bold),
+                      style: TextStyle(
+                          fontSize: 28,
+                          fontWeight: FontWeight.bold,
+                          color: context.theme.hintColor),
                     ),
                   ),
                   const SizedBox(height: 20.0),
@@ -76,9 +82,11 @@ class _LoginPageState extends State<LoginPage> {
                     child: Column(
                       children: [
                         TextFormField(
-                            decoration: const InputDecoration(
-                                labelText: "Username",
-                                hintText: "Enter Your Username : "),
+                            style: TextStyle(color: context.theme.hintColor),
+                            decoration: InputDecoration(
+                              labelText: "Username",
+                              hintText: "Enter Your Username : ",
+                            ),
 // Validation
 
                             validator: (String? value) {
@@ -93,10 +101,12 @@ class _LoginPageState extends State<LoginPage> {
                             }),
                         const SizedBox(height: 20.0),
                         TextFormField(
+                          style: TextStyle(color: context.theme.hintColor),
                           obscureText: true,
-                          decoration: const InputDecoration(
+                          decoration: InputDecoration(
                               labelText: "Password",
-                              hintText: "Enter Your Password : "),
+                              hintText: "Enter Your Password : ",
+                              iconColor: context.theme.hintColor),
                           validator: (String? value) {
                             if (value != null && value.isEmpty) {
                               return "Enter Valid Password";
