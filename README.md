@@ -1624,9 +1624,9 @@ and
 
 # Deployment
 
-Live Deployed Application     `https://catelog-application.web.app/#/`
+Live Deployed Application     [Catelog Application](https://catelog-application.web.app/#/)
 
-Best Video For Firebase Development `https://youtu.be/xJo7Mqse960`
+Best Video For Firebase Development [Deploy On Firebase](https://youtu.be/xJo7Mqse960)
 
 #### Thanks TO [@CodePur](https://www.youtube.com/@HelloCodepur)
 #### [Pawan Sharma](https://github.com/iampawan)
